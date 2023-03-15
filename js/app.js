@@ -16,12 +16,14 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-  if (likedPostsId == false) {
+  const index = likedPostsId.indexOf(id);
+  if (index === -1) {
     likedPostsId.push(id);
+    showPosts(posts);
   } else {
-    likedPostsId.pop(id)
+    likedPostsId.splice(index, 1);
+    showPosts(posts);
   }
-  showPosts(posts);
 };
 
 const reportPost = (id) => {
